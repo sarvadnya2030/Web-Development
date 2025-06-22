@@ -1,0 +1,17 @@
+.box{
+    background-color: orange;
+    height: 400px;
+    width:400px;
+    color:white;
+    overflow:auto;
+}
+.circle{
+    background-color:red;
+    border-radius:50%;
+    overflow: hidden;
+
+}
+.img{
+    height: 100%;
+    width: 100%
+}

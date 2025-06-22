@@ -1,0 +1,15 @@
+.parent{
+    background-color: orange;
+    display:flex;
+    flex-direction:column;
+}
+.child{
+    background-color: yellow;
+    color:black;
+    width: 200px;
+    height: 200px;
+    margin: 5px; 
+    border-color: black; 
+    border-width: 2px; 
+    border-style: solid;
+}

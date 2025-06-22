@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information & Media</title>
+    <style>
+        /* Centering circles */
+        svg {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- USER INFORMATION FORM -->
+    <h1>USER INFORMATION</h1>
+    <form id="userForm">
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname"><br><br>
+        
+        <label for="lname">Last Name:</label><br>
+        <input type="text" id="lname" name="lname"><br><br>
+        
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address"><br><br>
+        
+        <label for="email">Email ID:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob"><br><br>
+        
+        <button type="button" onclick="storeData()">Submit & Store</button>
+    </form>
+    
+    <h3>Stored Information:</h3>
+    <div id="storedData"></div>
+
+    <!-- AUDIO FILE WITH AUTOPLAY -->
+    <h2>Play Audio</h2>
+    <audio controls autoplay>
+        <source src="audiofile.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- VIDEO FILE WITH AUTOPLAY AND LOOP -->
+    <h2>Play Video</h2>
+    <video controls autoplay loop>
+        <source src="videofile.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- DISPLAY TWO CIRCLES USING SVG -->
+    <h2>Two Circles (SVG)</h2>
+    <svg height="150" width="500">
+        <circle cx="100" cy="75" r="50" stroke="black" stroke-width="3" fill="red" />
+        <circle cx="300" cy="75" r="50" stroke="black" stroke-width="3" fill="blue" />
+    </svg>
+
+    <script>
+        // Function to store user data in local storage
+        function storeData() {
+            const firstName = document.getElementById('fname').value;
+            const lastName = document.getElementById('lname').value;
+            const dob = document.getElementById('dob').value;
+            
+            // Store data in local storage
+            localStorage.setItem('firstName', firstName);
+            localStorage.setItem('lastName', lastName);
+            localStorage.setItem('dob', dob);
+            
+            // Display stored data
+            displayStoredData();
+        }
+        
+        // Function to display the stored data
+        function displayStoredData() {
+            const storedFirstName = localStorage.getItem('firstName');
+            const storedLastName = localStorage.getItem('lastName');
+            const storedDOB = localStorage.getItem('dob');
+            
+            // Display the stored data on the page
+            document.getElementById('storedData').innerHTML = `
+                <p>First Name: ${storedFirstName}</p>
+                <p>Last Name: ${storedLastName}</p>
+                <p>Date of Birth: ${storedDOB}</p>
+            `;
+        }
+
+        // Display stored data if available when page loads
+        window.onload = function() {
+            displayStoredData();
+        };
+    </script>
+</body>
+</html>
